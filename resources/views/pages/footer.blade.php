@@ -1,0 +1,6 @@
+<div class="footer">
+    <div class="copyright">
+        <p>Copyright © <a href="https://qnu.edu.vn/">Đại học Quy Nhơn</a> - Quy Nhon University. All Rights Reserved</p>
+        <p>Địa chỉ : 170 An Dương Vương, Tp. Quy Nhơn</p>
+    </div>
+</div>
