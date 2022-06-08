@@ -144,7 +144,7 @@
                 @foreach ($employeeLaudatory as $laudatory)             
                 <li class="mb-2"  style="font-size: 15px">
                     <div class="flex d-flex flex-row">
-                        <img src="{{ asset('./images/' . $laudatory->nhanvien->HinhAnh) }}"  style="width:120px;height:50px;border-radius: 50%;" alt="">
+                        <img src="{{ asset('./images/' . $laudatory->nhanvien->HinhAnh) }}"  style="width:50px;height:50px;border-radius: 50%;" alt="">
                         <p class="my-auto ml-1">
                             {{$laudatory->nhanvien->Ho.' '.$laudatory->nhanvien->Ten}}
                         </p>
@@ -163,7 +163,7 @@
                  @foreach ($employeeDiscipline as $discipline)
                  <li class="mb-2" style="font-size: 15px">
                     <div class="flex d-flex flex-row">
-                        <img src="{{ asset('./images/' . $discipline->nhanvien->HinhAnh) }}"  style="width:120px;height:50px;border-radius: 50%;" alt="">
+                        <img src="{{ asset('./images/' . $discipline->nhanvien->HinhAnh) }}"  style="width:50px;height:50px;border-radius: 50%;" alt="">
                         <p class="my-auto ml-1">
                             {{$discipline->nhanvien->Ho.' '.$discipline->nhanvien->Ten}}
                         </p>
