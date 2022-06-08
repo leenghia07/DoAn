@@ -14,7 +14,7 @@
     </div>
 </div>
 @if ( Session::has('success') )
-	<div class="alert alert-success alert-dismissible" role="alert">
+	<div class="alert mb-3 alert-success alert-dismissible" role="alert">
 		<strong>{{ Session::get('success') }}</strong>
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
@@ -25,7 +25,7 @@
 
 
 @if ( Session::has('error') )
-	<div class="alert alert-danger alert-dismissible" role="alert">
+	<div class="alert mb-3 alert-danger alert-dismissible" role="alert">
 		<strong>{{ Session::get('error') }}</strong>
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
@@ -34,7 +34,7 @@
 	</div>
 @endif
 @if ( Session::has('error') )
-<div class="alert alert-danger alert-dismissible" role="alert">
+<div class="alert mb-3 alert-danger alert-dismissible" role="alert">
     <strong>{{ Session::get('error') }}</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -51,15 +51,13 @@
     <div class="row">
         @foreach($employee as $value)
         <div class="container py-5 card" style="margin-top: -20px; margin-left: 50px;">
-                <form  method="POST" action="/admin/employee/update/{{$value->Id_NhanVien}}">
+                <form  method="POST" action="{{route('update',['id'=>$value->Id_NhanVien])}}">
                     {{-- @method('PUT') --}}
                     @csrf
                     <div class="form-row">
-                        {{-- <div class="col-md-6 lg-3  mb-3 ">
-                            <label >Tên nhân viên</label>
-                            <input type="text" class="form-control"  placeholder="Họ và tên nhân viên" value="{{$value->Ten}}" name="suahoten" required>
-                        
-                        </div> --}}
+                        <div class="col-lg-12 mb-2">
+                            <dt>Thông tin nhân viên</dt>
+                        </div>
                         <div class="col-md-6 lg-3  mb-3 " style="display: flex">
                             <div class="col-md-6 lg-3  mb-3">
                                 <label >Họ</label>
@@ -79,9 +77,6 @@
                     <div class="form-row">
                     <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Giới tính</label>
-                            <!-- <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required> -->
-                            <!-- <input id="r1"  checked="checked" type="radio"  name="themgioitinh" value="Nam">Nam
-                            <input id="r2" type="radio" name="themgioitinh" value="Nữ">Nữ<br> -->
                             <select class="form-control" name="gioitinh">
                                 <option value="{{$value->GioiTinh}}" >{{$value->GioiTinh}}</option>
                                 <option >---Chọn---</option>
@@ -92,46 +87,113 @@
                         <div class="col-md-6 mb-3">
                             <label >Dân tộc</label>
                             <input type="text" class="form-control"placeholder="Dân tộc" name="dantoc" value="{{$value->DanToc}}" required>
-                           
                         </div>
                     </div>
-                    {{-- <div class="form-row">
+                    <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustom01">Trình độ</label>
-                            <!-- <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required> -->
-                            <select class="form-control" name="suatd">
-                            
-                                <option >---Chọn---</option>
-                                <option disabled>---Đại Học---</option>
+                            <label >Số điện thoại</label>
+                            <input type="text" class="form-control"placeholder="Số điện thoại" name="sdt" value="{{$value->SDT}}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label >Email</label>
+                            <input type="text" class="form-control" placeholder="Email" name="email" value="{{$value->Email}}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label >Nơi sinh</label>
+                            <input type="text" class="form-control" placeholder="Nơi sinh" name="noisinh" value="{{$value->NoiSinh}}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>CMND</label>
+                            <input type="text" class="form-control" placeholder="Chứng minh nhân dân" name="cmnd" value="{{$value->CMND}}" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label >Địa chỉ</label>
+                            <input type="text" class="form-control" placeholder="Địa chỉ"  name="diachi" value="{{$value->DiaChi}}" required>
                            
-                            </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustom02">Phòng ban</label>
-                            <!-- <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required> -->
-                            <select class="form-control" name="suaphongban">
-                                <option >--Chọn--</option>
-                        </select>
+                            <label>Quê quán</label>
+                            <input type="text" class="form-control" placeholder="Quê quán" name="quequan" value="{{$value->QueQuan}}" required>
                         </div>
-                    </div> --}}
+                    </div>
+                    <div class="col-lg-12 mb-2">
+                        <dt>chức vụ / phòng ban</dt>
+                    </div>
                     <div class="form-row">
                         <div class="col-md-6  mb-3">
                             <label >Chức vụ</label>
-                            <select class="form-control" name="chucvu">
-                                @foreach ($value->chucvu as $valuechucvu)
-                                    <option value="{{$valuechucvu->Id_ChucVu}}" >{{$valuechucvu->TenChucVu}}</option>
-                                 @endforeach
+                            <select class="form-control" name="phongban">
+                                <option value="{{$value->chucvu->Id_ChucVu}}" >{{$value->chucvu->TenChucVu}}</option>
                                 <option >--Chọn--</option>
                                 @foreach ($listchucvu as $valuechucvu)
                                     <option value="{{$valuechucvu->Id_ChucVu}}">{{$valuechucvu->TenChucVu}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label >Email</label>
-                            <input type="text" class="form-control" placeholder="Email" name="email" value="{{$value->Email}}" required>
-                            
+                        <div class="col-md-6  mb-3">
+                            <label >Phòng ban</label>
+                            <select class="form-control" name="chucvu">
+                                <option value="{{$value->phongban->Id_PhongBan}}" >{{$value->phongban->TenPhongBan}}</option>
+                                <option >--Chọn--</option>
+                                @foreach ($listphongban as $valuephongban)
+                                    <option value="{{$valuephongban->Id_PhongBan}}">{{$valuephongban->TenPhongBan}}</option>
+                                @endforeach
+                            </select>
                         </div>
+                    </div>
+                    <div class="col-lg-12 mb-2">
+                        <dt>Trình độ</dt>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label >Trình độ chuyên môn</label>
+                            <select class="form-control" name="trinhdochuyenmon" >
+                                <option value="{{$value->trinhdochuyenmon->Id_TDChuyenMon}}" >{{$value->trinhdochuyenmon->TrinhDo}}</option>
+                                <option >--Chọn--</option>
+                                @foreach ($listtdchuyenmon as $valuetdcm)
+                                    <option value="{{$valuetdcm->Id_TDChuyenMon}}">{{$valuetdcm->TrinhDo}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Trình độ tin học</label>
+                            <select class="form-control" name="tinhoc">
+                                <option value="{{$value->tinhoc->Id_TinHoc}}" >{{$value->tinhoc->TrinhDo}}</option>
+                                <option >--Chọn--</option>
+                                @foreach ($listtdtinhoc as $valuetinhoc)
+                                    <option value="{{$valuetinhoc->Id_TinHoc}}">{{$valuetinhoc->TrinhDo}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label >Trình độ ngoại ngữ</label>
+                            <select class="form-control" name="ngoaingu" >
+                                <option value="{{$value->ngoaingu->Id_NgoaiNgu}}" >{{$value->ngoaingu->TrinhDo}}</option>
+                                <option >--Chọn--</option>
+                                @foreach ($listtdngoaingu as $valuengoaingu)
+                                    <option value="{{$valuengoaingu->Id_NgoaiNgu}}">{{$valuengoaingu->TrinhDo}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Trình độ chính trị</label>
+                            <select class="form-control" name="chinhtri">
+                                <option value="{{$value->chinhtri->Id_ChinhTri}}" >{{$value->chinhtri->TrinhDo}}</option>
+                                <option >--Chọn--</option>
+                                @foreach ($listchinhtri as $valuechinhtri)
+                                    <option value="{{$valuechinhtri->Id_ChinhTri}}">{{$valuechinhtri->TrinhDo}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 mb-2">
+                        <dt>Trường</dt>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
@@ -139,9 +201,7 @@
                             <input type="text" class="form-control" placeholder="Đơn vị" name="suadonvi" value="{{$value->DonVi}}" required> --}}
                             <label >Đơn vị</label>
                             <select class="form-control" name="donvi" >
-                                @foreach ($value->donvi as $valuedonvi)
-                                    <option value="{{$valuedonvi->Id_DonVi}}" >{{$valuedonvi->TenDonVi}}</option>
-                                 @endforeach
+                                <option value="{{$value->donvi->Id_DonVi}}" >{{$value->donvi->TenDonVi}}</option>
                                 <option >--Chọn--</option>
                                 @foreach ($listdonvi as $valuedv)
                                     <option value="{{$valuedv->Id_DonVi}}">{{$valuedv->TenDonVi}}</option>
@@ -149,15 +209,9 @@
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
-                            {{-- @foreach ($value->bomon as $valuebomon)
-                                <label>Bộ Môn</label>
-                                <input type="text" class="form-control" placeholder="Bộ Môn" name="suabomon" value="{{$valuebomon->TenBoMon}}" required>
-                            @endforeach --}}
                             <label>Bộ Môn</label>
                             <select class="form-control" name="bomon">
-                                @foreach ($value->bomon as $valuebomon)
-                                    <option value="{{$valuebomon->Id_BoMon}}" >{{$valuebomon->TenBoMon}}</option>
-                                @endforeach
+                                <option value="{{$value->bomon->Id_BoMon}}" >{{$value->bomon->TenBoMon}}</option>
                                 <option >--Chọn--</option>
                                 @foreach ($listbomon as $valuebomon)
                                     <option value="{{$valuebomon->Id_BoMon}}">{{$valuebomon->TenBoMon}}</option>
@@ -165,18 +219,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label>CMND</label>
-                            <input type="text" class="form-control" placeholder="Chứng minh nhân dân" name="cmnd" value="{{$value->CMND}}" required>
-                            
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label >Số điện thoại</label>
-                            <input type="text" class="form-control"placeholder="Số điện thoại" name="sdt" value="{{$value->SDT}}" required>
-                        
-                        </div>
-                    </div>
+               
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label >Biên chế</label>
@@ -213,15 +256,9 @@
                             <input type="date" class="form-control" placeholder="Bắt đầu công tác" name="batdaucongtac" value="{{$value->BatDauCongTac}}" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                            {{-- <label>Chuyên môn đào tạo</label>
-                            <input type="text" class="form-control" placeholder="Quê quán" name="suachuyenmon"value="{{$value->chuyenmon}}" required> --}}
-                           
                             <label>Chuyên môn đào tạo</label>
                             <select class="form-control" name="chuyenmon">
-                                @foreach ($value->chuyenmon as $valuechuyenmon)
-                                    <option value="{{$valuechuyenmon->Id_ChuyenMon}}" >{{$valuechuyenmon->TenChuyenMon}}</option>
-                                @endforeach
-        
+                                <option value="{{$value->chuyenmon->Id_ChuyenMon}}" >{{$value->chuyenmon->TenChuyenMon}}</option>
                                 <option >--Chọn--</option>
                                 @foreach ($listchuyenmon as $valuechuyenmon)
                                     <option value="{{$valuechuyenmon->Id_ChuyenMon}}">{{$valuechuyenmon->TenChuyenMon}}</option>
@@ -231,52 +268,12 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label >Nơi sinh</label>
-                            <input type="text" class="form-control" placeholder="Nơi sinh" name="noisinh" value="{{$value->NoiSinh}}" required>
-                           
-                        </div>
-                        <div class="col-md-6 mb-3">
                             <label>Ngày vào trường</label>
                             <input type="date" class="form-control" placeholder="" name="ngayvt" value="{{$value->NgayVaoTruong}}" required>
-                           
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label >Địa chỉ</label>
-                            <input type="text" class="form-control" placeholder="Địa chỉ"  name="diachi" value="{{$value->DiaChi}}" required>
-                           
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label>Quê quán</label>
-                            <input type="text" class="form-control" placeholder="Quê quán" name="quequan" value="{{$value->QueQuan}}" required>
-                           
-                        </div>
-                    </div>
-               
-                    <div class="form-row">
-                     
-                        <div class="col-md-6 mb-3">
-                            {{-- <label >Phân quyền</label>
-                            <input type="text" class="form-control"  placeholder="Lương cơ bản" value="" name="phanquyen"  required> --}}
-                            <label>Phân quyền</label>
-                            <select class="form-control" name="phanquyen">
-                                @foreach ($value->phanquyen as $valuephanquyen)
-                                    <option value="{{$valuephanquyen->Id_PhanQuyen}}" >{{$valuephanquyen->TenQuyen}}</option>
-                                @endforeach
-        
-                                <option >--Chọn--</option>
-                                @foreach ($listphanquyen as $valuelistphanquyen)
-                                    <option value="{{$valuelistphanquyen->Id_PhanQuyen}}">{{$valuelistphanquyen->TenQuyen}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        {{-- <div class="col-md-6 mb-3">
-                            <label >Hệ số lương</label>
-                            <input type="text" class="form-control"  placeholder="Hệ số lương" value="" name="hesoluong" required>
-                           
-                        </div> --}}
-                       
+                    <div class="col-lg-12 mb-2">
+                        <dt>Khác</dt>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6 mb-3 " >
@@ -288,6 +285,19 @@
                             <label >Mật khẩu</label>
                             <input type="text" class="form-control"  placeholder="Mật khẩu" name="matkhau"  value="{{$value->MatKhau}}" required>
                       
+                        </div>
+                    </div>
+                    <div class="form-row">
+                     
+                        <div class="col-md-6 mb-3">
+                            <label>Phân quyền</label>
+                            <select class="form-control" name="phanquyen">
+                                <option value="{{$value->phanquyen->Id_PhanQuyen}}" >{{$value->phanquyen->TenQuyen}}</option>
+                                <option >--Chọn--</option>
+                                @foreach ($listphanquyen as $valuelistphanquyen)
+                                    <option value="{{$valuelistphanquyen->Id_PhanQuyen}}">{{$valuelistphanquyen->TenQuyen}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="mb-4 mt-4 " style="margin-left: 400px;">

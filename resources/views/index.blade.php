@@ -7,10 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Trang Chủ </title>
+    <link rel="icon" href="{{ asset('./images/cntt_ico_n.png') }}" type="image/x-icon" />
     <link href="{{ asset('./css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    {{-- <link rel="stylesheet" href="{{ asset('./vendor/select2/css/select2.min.css') }}"> --}}
+    <!-- Pick date -->
+    {{-- <link rel="stylesheet" href="{{ asset('./vendor/pickadate/themes/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('./vendor/pickadate/themes/default.date.css') }}"> --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 
-
+    <!-- Summernote -->
+    <link href="{{ asset('./vendor/summernote/summernote.css') }}" rel="stylesheet">
 
 </head>
 
@@ -52,14 +62,20 @@
         @include('pages/footer')
 
     </div>
+    {{-- script --}}
+    {{-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> --}}
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> --}}
+   
+    
     <!-- Required vendors -->
     <script src="{{ asset('./vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('./js/quixnav-init.js') }}"></script>
     <script src="{{ asset('./js/custom.min.js') }}"></script>
 
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
 
-    <script src="{{ asset('./vendor/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('./vendor/pg-calendar/js/pignose.calendar.min.js') }}"></script>
+    {{-- <script src="{{ asset('./vendor/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('./vendor/pg-calendar/js/pignose.calendar.min.js') }}"></script> --}}
    
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
@@ -68,16 +84,23 @@
       <!-- Data table  -->
     <script src="{{ asset('./vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('./js/plugins-init/datatables.init.js') }}"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
+    {{-- <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/> --}}
+
+    <!-- Summernote -->
+   <script src="{{ asset('./vendor/summernote/js/summernote.min.js') }}"></script>
+   <!-- Summernote init -->
+   <script src="{{ asset('./js/plugins-init/summernote-init.js') }}"></script>
+   
+   {{-- SELECT --}}
+   {{-- <script src="{{ asset('./vendor/select2/js/select2.full.min.js') }}"></script>
+   <script src="{{ asset('./js/plugins-init/select2-init.js') }}"></script> --}}
+    
     <script>
         
         $('.table').DataTable({
             ordering: false,
             pagingType: 'full_numbers',
-
-           
-            lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Tất cả"]],
+            lengthMenu: [[5, 10, 25, 50, -1], [5,10, 25, 50, "Tất cả"]],
             "language": {
                 "decimal": "",
                 "emptyTable": "Không có dữ liệu",

@@ -4,7 +4,7 @@ namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
-use App\nhanvien;
+use App\models\nhanvien;
 use DB;
 class TestExport implements FromCollection,WithHeadings
 {
