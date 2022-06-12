@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 08, 2022 lúc 09:19 AM
+-- Thời gian đã tạo: Th6 12, 2022 lúc 08:01 AM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.34
 
@@ -144,7 +144,8 @@ INSERT INTO `chamcong` (`Id_ChamCong`, `Id_NhanVien`, `Ngay`, `GioVao`, `GioRa`,
 (94, 34, '2022-06-04', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
 (95, 34, '2022-06-07', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
 (96, 35, '2022-06-03', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
-(97, 35, '2022-06-04', '07:00:00', '17:00:00', '00:00:00', '00:00:00');
+(97, 35, '2022-06-04', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
+(98, 14, '2022-06-07', '07:00:00', '17:00:00', '00:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -174,7 +175,7 @@ INSERT INTO `chatbox` (`Id_ChatBox`, `NguoiTao`, `Id_PhongBan`, `ToUser`, `TenCh
 (10, 1, NULL, NULL, 'nhóm chat', '51725861048_edeeaaef42_q.jpg', '2022-05-13 15:39:00'),
 (13, 1, 3, NULL, 'phòng đào tạo  1', '51725861048_edeeaaef42_q.jpg', '2022-05-16 02:19:33'),
 (15, 1, NULL, 14, 'test', 'images.png', '2022-06-04 14:41:35'),
-(17, 14, NULL, 16, 'test 2', 'hinhvanban2.png', '2022-06-04 15:05:06'),
+(17, 14, NULL, 16, 'hỏi đáp', 'hinhvanban2.png', '2022-06-04 15:05:06'),
 (18, 33, NULL, 1, 'hỏi đáp', 'images.png', '2022-06-04 16:30:19');
 
 -- --------------------------------------------------------
@@ -274,7 +275,8 @@ INSERT INTO `congviec` (`Id_CongViec`, `Id_NhanVien`, `Id_PhongBan`, `NguoiGiao`
 (16, 16, NULL, 14, '2022-05-28', '2022-05-28 19:20:00', '2022-05-31 17:20:00', '<p>Công việc 3</p>', '', NULL, 0, 3),
 (17, 16, NULL, 14, '2022-05-28', '2022-05-28 19:20:00', '2022-05-31 17:20:00', '<p>Công việc 3</p>', '', NULL, 0, 3),
 (18, 14, NULL, 1, '2022-05-28', '2022-05-28 17:31:00', '2022-05-29 18:31:00', '<p>công việc</p>', '', NULL, 0, 3),
-(19, 16, NULL, 14, '2022-06-03', '2022-06-10 07:00:00', '2022-06-18 07:00:00', 'Xử lý giấy tờ&nbsp;', '', NULL, 0, 1);
+(19, 16, NULL, 14, '2022-06-03', '2022-06-10 07:00:00', '2022-06-18 07:00:00', 'Xử lý giấy tờ&nbsp;', '', NULL, 0, 1),
+(20, 16, NULL, 14, '2022-06-11', '2022-06-11 13:18:00', '2022-06-14 13:18:00', '<p>Xứ lý công việc</p>', '', NULL, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -323,7 +325,8 @@ CREATE TABLE `daotao` (
 
 INSERT INTO `daotao` (`Id_DaoTao`, `Id_LoaiDaoTao`, `TenDaoTao`, `NgayBatDau`, `NgayKetThuc`, `ChiPhi`, `NoiDung`, `NoiDaoTao`, `TinhTrang`) VALUES
 (1, 1, 'Tiếng anh', '2022-03-23', '2022-03-31', 0.00, '', 'quy nhơn', 0),
-(4, 2, 'Đào tạo tin học', '2022-05-18', '2022-05-30', 20000.00, '', 'ĐH quy nhơn', 1);
+(4, 2, 'Đào tạo tin học', '2022-05-18', '2022-05-30', 20000.00, '', 'ĐH quy nhơn', 0),
+(5, 1, 'chứng chỉ tiếng anh B2', '2022-06-13', '2022-07-13', 0.00, 'Đào tạo tiếng anh&nbsp;', 'Trường đại học quy nhơn', 1);
 
 -- --------------------------------------------------------
 
@@ -392,7 +395,8 @@ INSERT INTO `hop` (`Id`, `Id_PhongBan`, `ThanhPhan`, `DiaDiem`, `NguoiChuTri`, `
 (11, 3, 'Trưởng phòng', 'Phòng 121', 14, '2022-06-02', '07:00:00', '<p>Họp báo cáo tiến độ công việc</p>', 'nghia.csv', b'0'),
 (12, 3, 'phòng ban', 'Phòng 121', 14, '2022-06-03', '17:00:00', '<p>Họp</p>', 'BÀI THỰC HÀNH SỐ 4.docx', b'0'),
 (14, 3, 'Lãnh đạo cấp trường', 'Phòng 122', 14, '2022-06-03', '18:00:00', '<p>Họp với lãnh đâọ cấp trường</p>', NULL, b'0'),
-(15, 3, 'Thầy cô công nghệ thông tin', 'tầng 10', 1, '2022-06-06', '09:47:00', '<p>Họp đồ án</p>', NULL, b'0');
+(15, 3, 'Thầy cô công nghệ thông tin', 'tầng 10', 1, '2022-06-06', '09:47:00', '<p>Họp đồ án</p>', NULL, b'0'),
+(16, 3, 'Các nhân viên trong phòng ban', 'Phong 202', 14, '2022-06-11', '15:00:00', '<p>Họp báo cáo công việc</p>', NULL, b'0');
 
 -- --------------------------------------------------------
 
@@ -414,8 +418,8 @@ CREATE TABLE `ketquadaotao` (
 
 INSERT INTO `ketquadaotao` (`Id_KetQuaDT`, `Id_NhanVien`, `Id_DaoTao`, `KetQua`, `GhiChu`) VALUES
 (1, 16, 1, 'Đậu', 'hoàn&nbsp; thành tốt khóa đào tạo'),
-(6, 33, 1, '', ''),
-(10, 14, 4, '', '');
+(6, 33, 1, 'Đậu', NULL),
+(10, 14, 4, 'Đậu', NULL);
 
 -- --------------------------------------------------------
 
@@ -547,11 +551,11 @@ CREATE TABLE `luong` (
 --
 
 INSERT INTO `luong` (`Id_Luong`, `Id_NhanVien`, `Id_Bac`, `Ngay`, `TongNgayLam`, `TongLuong`, `TinhTrang`) VALUES
-(5, 16, 1, '2022-05-01', 4, 200571, b'0'),
+(5, 16, 1, '2022-05-01', 4, 200571, b'1'),
 (8, 14, 2, '2022-04-01', 4, 2000, b'1'),
 (9, 14, 2, '2022-05-01', 9, 416571, b'1'),
-(10, 33, 2, '2022-05-10', 1, 46286, b'0'),
-(12, 14, 2, '2022-06-01', 4, 189771, b'0'),
+(10, 33, 2, '2022-05-01', 1, 46286, b'1'),
+(12, 14, 2, '2022-06-01', 5, 237214, b'0'),
 (14, 16, 1, '2022-06-01', 4, 200571, b'0'),
 (15, 33, 2, '2022-06-01', 3, 142329, b'0'),
 (24, 34, 3, '2022-06-01', 5, 2262860, b'0'),
@@ -784,7 +788,9 @@ INSERT INTO `thongbao` (`Id`, `NguoiGui`, `NguoiNhan`, `PhongBan`, `NoiDung`, `T
 (8, 14, 16, NULL, 'đã giao việc cho bạn', '2022-06-03 16:18:11'),
 (9, 1, NULL, 3, 'Thông báo cuộc họp', '2022-06-06 09:48:00'),
 (10, 14, 1, NULL, ' Yêu cầu xử lý về Lương', '2022-06-06 10:13:15'),
-(11, 1, 14, NULL, 'đã duyệt yêu cầu', '2022-06-06 10:13:50');
+(11, 1, 14, NULL, 'đã duyệt yêu cầu', '2022-06-06 10:13:50'),
+(12, 14, NULL, 3, 'Thông báo cuộc họp', '2022-06-11 13:16:57'),
+(13, 14, 16, NULL, 'đã giao việc cho bạn', '2022-06-11 13:18:25');
 
 -- --------------------------------------------------------
 
@@ -1160,7 +1166,7 @@ ALTER TABLE `bomon`
 -- AUTO_INCREMENT cho bảng `chamcong`
 --
 ALTER TABLE `chamcong`
-  MODIFY `Id_ChamCong` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `Id_ChamCong` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT cho bảng `chatbox`
@@ -1184,7 +1190,7 @@ ALTER TABLE `chuyenmon`
 -- AUTO_INCREMENT cho bảng `congviec`
 --
 ALTER TABLE `congviec`
-  MODIFY `Id_CongViec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `Id_CongViec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `danhgia`
@@ -1196,7 +1202,7 @@ ALTER TABLE `danhgia`
 -- AUTO_INCREMENT cho bảng `daotao`
 --
 ALTER TABLE `daotao`
-  MODIFY `Id_DaoTao` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_DaoTao` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `donvi`
@@ -1208,7 +1214,7 @@ ALTER TABLE `donvi`
 -- AUTO_INCREMENT cho bảng `hop`
 --
 ALTER TABLE `hop`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `ketquadaotao`
@@ -1292,7 +1298,7 @@ ALTER TABLE `tailieu`
 -- AUTO_INCREMENT cho bảng `thongbao`
 --
 ALTER TABLE `thongbao`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `trinhdochinhtri`
