@@ -321,7 +321,7 @@
                                                         <div class="flex-row d-flex justify-content-center mb-2">
                                                             <div class="col"></div>
                                                             <div class="col"><h2 class="text-info">Thời gian làm việc</h2></div>
-                                                            <a href="{{route('deletetimekeeping',['id'=>$work->Id_ChamCong])}}" class="col text-right" style="font-size:25px;color:black;">x</a>
+                                                            <a href="{{route('deletetimekeeping',['id'=>$work->Id_ChamCong])}}" class="col text-right" style="font-size:17px;color:black;">Xóa</a>
                                                         </div>
                                                         {{-- <input type="hidden" name="idchamcong" value="{{$work->Id_ChamCong}}" class="form-control"  /> --}}
                                                         <div class="d-flex flex-column w-auto mt-3">

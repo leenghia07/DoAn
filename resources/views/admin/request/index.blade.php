@@ -102,7 +102,8 @@
                                     <form action="{{ route('agreerequest',['id'=>$value->Id_YeuCau])}}" method="POST">
                                     @csrf 
                                         <input type="hidden" name="dongy" value="{{$value->Id_NhanVien}}">
-                                        <button class="btn btn-success w-70 ml-4"><i class="mdi mdi-check"></i> Duyệt</button>                                 
+                                        <button class="btn btn-success w-70 ml-4"><i class="mdi mdi-check"></i> Duyệt</button>   
+                                    </form>                             
                                    <form action="{{ route('removerequest',['id'=>$value->Id_YeuCau])}}" method="POST">
                                     @csrf
                                         <input type="hidden" name="tuchoi" value="{{$value->Id_NhanVien}}">

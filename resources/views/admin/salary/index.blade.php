@@ -163,7 +163,7 @@
                                     @endif
                                 </td>
                                <td style="text-align: center">
-                                   <a href="{{ route('detailsalary',['id' =>$salary->Id_Luong])}}" style="color: black;">{{$salary->nhanvien->Ho.' '.$salary->nhanvien->Ten}}</a> 
+                                   <a href="{{ route('detailsalary',['id' =>$salary->Id_Luong])}}" style="">{{$salary->nhanvien->Ho.' '.$salary->nhanvien->Ten}}</a> 
                                </td>
                                <td class="text-center">
                                     {{$salary->bacluong->ngach->MaNgach}}

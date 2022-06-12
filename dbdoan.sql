@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 12, 2022 lúc 08:01 AM
+-- Thời gian đã tạo: Th6 12, 2022 lúc 08:17 AM
 -- Phiên bản máy phục vụ: 10.4.14-MariaDB
 -- Phiên bản PHP: 7.2.34
 
@@ -145,7 +145,10 @@ INSERT INTO `chamcong` (`Id_ChamCong`, `Id_NhanVien`, `Ngay`, `GioVao`, `GioRa`,
 (95, 34, '2022-06-07', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
 (96, 35, '2022-06-03', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
 (97, 35, '2022-06-04', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
-(98, 14, '2022-06-07', '07:00:00', '17:00:00', '00:00:00', '00:00:00');
+(98, 14, '2022-06-07', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
+(99, 16, '2022-06-07', '07:00:00', '17:00:00', '00:00:00', '00:00:00'),
+(101, 33, '2022-06-07', '07:00:00', '16:00:00', '00:00:00', '00:00:00'),
+(102, 35, '2022-06-07', '00:00:00', '00:00:00', '00:00:00', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -443,7 +446,8 @@ INSERT INTO `khenthuong` (`Id_Khenthuong`, `Id_NhanVien`, `MoTa`, `Ngay`, `Thuon
 (1, 16, 'Đi làm xuất sắc', '2022-03-31', 0),
 (2, 14, '<p>Làm việc chăm chỉ</p>', '2022-04-09', 222),
 (3, 16, '<p>&nbsp; &nbsp; Đã hoành thành tốt công việc<br></p>', '2022-04-19', 200000),
-(4, 14, 'Lãnh đạo phòng ban xuất sắc', '2022-06-02', 0);
+(4, 14, 'Lãnh đạo phòng ban xuất sắc', '2022-06-02', 0),
+(5, 16, '<p>Làm việc xuyên năng</p>', '2022-06-12', 0);
 
 -- --------------------------------------------------------
 
@@ -505,7 +509,8 @@ INSERT INTO `loaivanban` (`Id_LoaiVanBan`, `TenLoaiVanBan`) VALUES
 (1, 'Khen thưởng'),
 (3, 'Kỹ luật'),
 (4, 'Tuyển dụng'),
-(5, 'Thông báo');
+(5, 'Thông báo'),
+(6, 'Khác');
 
 -- --------------------------------------------------------
 
@@ -556,8 +561,8 @@ INSERT INTO `luong` (`Id_Luong`, `Id_NhanVien`, `Id_Bac`, `Ngay`, `TongNgayLam`,
 (9, 14, 2, '2022-05-01', 9, 416571, b'1'),
 (10, 33, 2, '2022-05-01', 1, 46286, b'1'),
 (12, 14, 2, '2022-06-01', 5, 237214, b'0'),
-(14, 16, 1, '2022-06-01', 4, 200571, b'0'),
-(15, 33, 2, '2022-06-01', 3, 142329, b'0'),
+(14, 16, 3, '2022-06-01', 5, 250714, b'0'),
+(15, 33, 2, '2022-06-01', 4, 189771, b'0'),
 (24, 34, 3, '2022-06-01', 5, 2262860, b'0'),
 (25, 35, 3, '2022-06-01', 4, 1810290, b'0');
 
@@ -790,7 +795,16 @@ INSERT INTO `thongbao` (`Id`, `NguoiGui`, `NguoiNhan`, `PhongBan`, `NoiDung`, `T
 (10, 14, 1, NULL, ' Yêu cầu xử lý về Lương', '2022-06-06 10:13:15'),
 (11, 1, 14, NULL, 'đã duyệt yêu cầu', '2022-06-06 10:13:50'),
 (12, 14, NULL, 3, 'Thông báo cuộc họp', '2022-06-11 13:16:57'),
-(13, 14, 16, NULL, 'đã giao việc cho bạn', '2022-06-11 13:18:25');
+(13, 14, 16, NULL, 'đã giao việc cho bạn', '2022-06-11 13:18:25'),
+(14, 1, 35, NULL, 'đã duyệt yêu cầu', '2022-06-12 13:07:42'),
+(15, 1, 35, NULL, 'đã duyệt yêu cầu', '2022-06-12 13:07:47'),
+(16, 1, 35, NULL, 'đã duyệt yêu cầu', '2022-06-12 13:07:56'),
+(17, 1, 35, NULL, 'đã duyệt yêu cầu', '2022-06-12 13:08:41'),
+(18, 1, 35, NULL, 'đã duyệt yêu cầu', '2022-06-12 13:09:03'),
+(19, 1, 35, NULL, 'đã duyệt yêu cầu', '2022-06-12 13:09:08'),
+(20, 1, 35, NULL, 'Không duyệt yêu cầu', '2022-06-12 13:09:27'),
+(21, 1, 35, NULL, 'đã duyệt yêu cầu', '2022-06-12 13:09:32'),
+(22, 1, 35, NULL, 'Không duyệt yêu cầu', '2022-06-12 13:09:36');
 
 -- --------------------------------------------------------
 
@@ -911,7 +925,7 @@ CREATE TABLE `yeucau` (
 --
 
 INSERT INTO `yeucau` (`Id_YeuCau`, `Id_NhanVien`, `Id_LoaiYeuCau`, `Ngay`, `MoTa`, `TinhTrang`) VALUES
-(1, 1, 1, '2022-03-27 07:00:00', 'Ông Derek Chollet, Cố vấn Bộ Ngoại giao Mỹ, có buổi trao đổi với Zing khi giao tranh ở Ukraine vừa cán mốc một tháng. Ông khẳng định Mỹ đang làm tất cả để hỗ trợ quá trình hòa đàm.', 3),
+(1, 35, 1, '2022-03-27 07:00:00', 'Ông Derek Chollet, Cố vấn Bộ Ngoại giao Mỹ, có buổi trao đổi với Zing khi giao tranh ở Ukraine vừa cán mốc một tháng. Ông khẳng định Mỹ đang làm tất cả để hỗ trợ quá trình hòa đàm.', 3),
 (2, 14, 2, '2022-04-29 06:31:27', '<p>&nbsp; &nbsp;Xin phép thứ 6 tăng ca từ 7 giờ tới 10 giờ tối<br></p>', 1),
 (5, 14, 3, '2022-05-28 07:51:32', '<p>tesst</p>', 1),
 (6, 14, 5, '2022-06-06 10:13:15', 'xử lý coogn việc sai lương', 1);
@@ -1166,7 +1180,7 @@ ALTER TABLE `bomon`
 -- AUTO_INCREMENT cho bảng `chamcong`
 --
 ALTER TABLE `chamcong`
-  MODIFY `Id_ChamCong` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `Id_ChamCong` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT cho bảng `chatbox`
@@ -1226,7 +1240,7 @@ ALTER TABLE `ketquadaotao`
 -- AUTO_INCREMENT cho bảng `khenthuong`
 --
 ALTER TABLE `khenthuong`
-  MODIFY `Id_Khenthuong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_Khenthuong` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `kyluat`
@@ -1244,7 +1258,7 @@ ALTER TABLE `loaidaotao`
 -- AUTO_INCREMENT cho bảng `loaivanban`
 --
 ALTER TABLE `loaivanban`
-  MODIFY `Id_LoaiVanBan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id_LoaiVanBan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `loaiyeucau`
@@ -1298,7 +1312,7 @@ ALTER TABLE `tailieu`
 -- AUTO_INCREMENT cho bảng `thongbao`
 --
 ALTER TABLE `thongbao`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `trinhdochinhtri`
